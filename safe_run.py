@@ -86,7 +86,7 @@ def runAll(cmd_list, threads):
     cmdi = 0
 
     def callback(process, status, timeused, memused):
-        # assert(status != RTE)
+        assert(status != RTE) # problem
         print(exit_names[status], process.cmd, " %.1fs"%timeused, "%.0fMB"%memused)
         sys.stdout.flush()
 
@@ -185,8 +185,7 @@ for taski in task_list:
             img, score = cand.split()
             cands.append((float(score), img))
 
-    # print("IDs", ids)
-    # assert(len(ids) == 1)
+    assert(len(ids) == 1) # problem
     id = ids.pop()
 
     cands.sort(reverse=True)
