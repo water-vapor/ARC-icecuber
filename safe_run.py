@@ -185,7 +185,7 @@ for taski in task_list:
             img, score = cand.split()
             cands.append((float(score), img))
 
-    print("IDs")
+    print("IDs", ids)
     assert(len(ids) == 1)
     id = ids.pop()
 
