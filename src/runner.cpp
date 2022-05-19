@@ -73,10 +73,13 @@ void run(int only_sid = -1, int arg = -1) {
   MAXDEPTH = arg % 10 * 10;
 
   int eval = 1;
+  string sample_dir = "evaluation";
+  // int eval = 0;
+  // string sample_dir = "tiny_sample";
 
   int skips = 0;
 
-  string sample_dir = "evaluation";
+  
   int samples = -1;
   if (eval) {
     sample_dir = "test";
