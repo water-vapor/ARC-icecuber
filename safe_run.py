@@ -22,8 +22,9 @@ exit_names = ["SUCCESS", "TLE", "MLE", "RTE", "RUNNING"]
 start_time = time.time()
 
 
-MEMORY_LIMIT = 4*4096 * 0.95 * 4/100 # MB
-TIME_LIMIT   = 9*60*60 * 0.95 * 4/100 # Seconds
+relative_size = 1/500
+MEMORY_LIMIT = 4*4096 * 0.95 * relative_size # MB
+TIME_LIMIT   = 9*60*60 * 0.95 * relative_size # Seconds
 
 
 class Process:
@@ -184,6 +185,7 @@ for taski in task_list:
             img, score = cand.split()
             cands.append((float(score), img))
 
+    print("IDs")
     assert(len(ids) == 1)
     id = ids.pop()
 
