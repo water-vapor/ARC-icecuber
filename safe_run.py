@@ -22,8 +22,8 @@ exit_names = ["SUCCESS", "TLE", "MLE", "RTE", "RUNNING"]
 start_time = time.time()
 
 
-MEMORY_LIMIT = 4*4096 * 0.95 # MB
-TIME_LIMIT   = 9*60*60 * 0.95 # Seconds
+MEMORY_LIMIT = 4*4096 * 0.95 * 4/100 # MB
+TIME_LIMIT   = 9*60*60 * 0.95 * 4/100 # Seconds
 
 
 class Process:
