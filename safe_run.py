@@ -140,7 +140,7 @@ if len(sys.argv) == 4:
     ntasks = n
     task_list = range(l, l+n)
 else:
-    ntasks = int(check_output(['./count_tasks', directory], capture_output=True))
+    ntasks = count_tasks(directory)
     task_list = range(0, ntasks)
     #print("Usage: python %s <start_task> <#tasks>"%sys.argv[0])
 
@@ -203,3 +203,22 @@ outf = open('submission_part.csv', 'w')
 for line in combined:
     print(line, file=outf)
 outf.close()
+
+def count_tasks(directory)
+    possible_roots = ["/kaggle/input/abstraction-and-reasoning-challenge/", "./dataset/"]
+
+    root_index = -1
+    for i, root in enumerate(possible_roots):
+        if os.path.isdir(root):
+            root_index = i
+    
+    assert(root_index >= 0)
+    assert(root_index < len(possible_roots))
+    root = possible_roots[root_index]
+
+    full_directory = root + directory
+    problems = [f for f in os.listdir(full_directory) if os.path.isfile(os.path.join(full_directory, f)) and f.split(".")[-1] == "json"]
+    print(problems)
+    return len(problems)
+    
+    
