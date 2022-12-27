@@ -13,10 +13,11 @@ Sample::Sample(string filename) {
   vector<Image> train_input, train_output;
   vector<Image> test_input, test_output;
 
-  regex re(".*/([a-z0-9]{8}).json");
+  regex re(".*/([A-Za-z0-9]+).json");
   smatch match;
   assert(std::regex_search(filename, match, re) && match.size() == 2);
   id = match.str(1);
+  cout << id
 
   fp = fopen(filename.c_str(), "r");
   assert(fp);
