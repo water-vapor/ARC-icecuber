@@ -52,7 +52,7 @@ class Process:
         print(cmd)
         sys.stdout.flush()
         self.cmd = cmd
-        self.process = Popen(cmd.split(), stdout=PIPE, shell=True, bufsize=1) # Popen(cmd.split(), stdout=self.fout, stderr=self.ferr, shell=False)
+        self.process = Popen(cmd.split(), stdout=PIPE, shell=True) # Popen(cmd.split(), stdout=self.fout, stderr=self.ferr, shell=False)
         self.pid = self.process.pid
         self.mp = psutil.Process(self.pid)
         self.memused, self.timeused = 0, 0
