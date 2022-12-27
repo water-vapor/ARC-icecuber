@@ -14,7 +14,7 @@ int main(int argc, char**argv) {
   //bruteSolve();
   int only_sid = -1;
   printf("arguments to main %s", argv[1]); // VICHANGE
-  string directory = argv[1]; // VICHANGE add directory argument
+  string directory(argv[1]); // VICHANGE add directory argument
   if (argc >= 3) { // VICHANGE: push arguments up by one
     only_sid = atoi(argv[2]); // VICHANGE
     printf("Running only task # %d\n", only_sid);

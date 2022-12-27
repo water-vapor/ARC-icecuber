@@ -8,7 +8,8 @@ using namespace std;
 #include "visu.hpp"
 #include "read.hpp"
 
-int main() {
-  vector<Sample> sample = readAll("test", -1);
+int main(int argc, char**argv) {
+  string directory(argv[1]);
+  vector<Sample> sample = readAll("test", -1, directory);
   cout << sample.size() << endl;
 }
