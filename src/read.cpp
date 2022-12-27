@@ -151,7 +151,7 @@ vector<Sample> readAll(string path, int maxn) { //maxn = -1
     assert(base_pathi < 2);
   }
 
-  cout << "The full directory found is " << base_path[base_pathi]+path << endl;
+  cout << "The full directory found is this: " << base_path[base_pathi]+path << endl;
   vector<string> files;
   for (auto magic_file_type : experimental::filesystem::directory_iterator(base_path[base_pathi]+path)) {
     string name = magic_file_type.path().u8string();
