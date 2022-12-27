@@ -1,5 +1,4 @@
 #include "precompiled_stl.hpp"
-
 using namespace std;
 
 #include "utils.hpp"
@@ -84,7 +83,8 @@ void run(int only_sid = -1, int arg = -1, string sample_dir = "evaluation") {
   /*vector<Sample> sample = readAll("evaluation", -1);
   samples = sample.size();
   sample = vector<Sample>(sample.begin()+samples-100,sample.end());*/
-  printf("The sample directory is %s" % sample_dir.c_str());
+  cout << "The sample directory is" << sample_dir << endl;
+  
   vector<Sample> sample = readAll(sample_dir, samples);
   //sample = vector<Sample>(sample.begin()+200, sample.begin()+300);
 
