@@ -44,13 +44,13 @@ def count_tasks(directory):
 
     subproblems = []
     for problem in problems:
-        task_path = os.path.join(full_directory, task)
-        task_name =  task.split(".")[0]
-        with open(task_path) as taskf:
+        problem_path = os.path.join(full_directory, problem)
+        problem_name =  problem.split(".")[0]
+        with open(problem_path) as taskf:
             taskj = json.load(taskf)
             problem_count = len(taskj["test"])
             for i in range(problem_count):
-                subproblems.append(task_name + "_" + str(i))
+                subproblems.append(problem_name + "_" + str(i))
 
     return len(subproblems)
     
