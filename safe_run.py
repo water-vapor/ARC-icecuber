@@ -43,7 +43,7 @@ def count_tasks(directory):
     print(problems)
     return len(problems)
     
-    
+
 class Process:
     def __init__(self, cmd, timeout, maxmemory):
         fn = cmd.replace(' ','_')
@@ -52,7 +52,7 @@ class Process:
         print(cmd)
         sys.stdout.flush()
         self.cmd = cmd
-        self.process = Popen(cmd.split(), stdout=self.fout, stderr=self.ferr, shell=False)
+        self.process = Popen(cmd.split(), stdout=PIPE, shell=True, bufsize=1) # Popen(cmd.split(), stdout=self.fout, stderr=self.ferr, shell=False)
         self.pid = self.process.pid
         self.mp = psutil.Process(self.pid)
         self.memused, self.timeused = 0, 0
