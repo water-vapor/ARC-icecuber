@@ -10,6 +10,6 @@ using namespace std;
 
 int main(int argc, char**argv) {
   string directory(argv[1]);
-  vector<Sample> sample = readAll("test", -1, directory);
+  vector<Sample> sample = readAll(directory, -1);
   cout << sample.size() << endl;
 }
