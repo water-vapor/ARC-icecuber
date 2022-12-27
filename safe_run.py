@@ -22,7 +22,7 @@ exit_names = ["SUCCESS", "TLE", "MLE", "RTE", "RUNNING"]
 start_time = time.time()
 
 
-relative_size = 1/100
+relative_size = 1/500
 MEMORY_LIMIT = 4*4096 * 0.95 * relative_size # MB
 TIME_LIMIT   = 9*60*60 * 0.95 * relative_size # Seconds
 
