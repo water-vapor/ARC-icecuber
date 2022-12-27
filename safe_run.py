@@ -41,7 +41,18 @@ def count_tasks(directory):
     
     problems = [f for f in os.listdir(full_directory) if os.path.isfile(os.path.join(full_directory, f)) and f.split(".")[-1] == "json"]
     print(problems)
-    return len(problems)
+
+    subproblems = []
+    for problem in problems:
+        task_path = os.path.join(full_directory, task)
+        task_name =  task.split(".")[0]
+        with open(task_path) as taskf:
+            taskj = json.load(taskf)
+            problem_count = len(taskj["test"])
+            for i in range(problem_count):
+                subproblems.append(task_name + "_" + str(i))
+
+    return len(subproblems)
     
 
 class Process:
