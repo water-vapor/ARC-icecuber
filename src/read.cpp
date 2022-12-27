@@ -17,7 +17,7 @@ Sample::Sample(string filename) {
   smatch match;
   assert(std::regex_search(filename, match, re) && match.size() == 2);
   id = match.str(1);
-  cout << id
+  cout << id << endl;
 
   fp = fopen(filename.c_str(), "r");
   assert(fp);
