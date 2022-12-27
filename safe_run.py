@@ -170,6 +170,7 @@ if len(sys.argv) == 4:
     task_list = range(l, l+n)
 else:
     ntasks = count_tasks(directory)
+    print(ntasks)
     task_list = range(0, ntasks)
     #print("Usage: python %s <start_task> <#tasks>"%sys.argv[0])
 
