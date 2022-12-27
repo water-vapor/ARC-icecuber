@@ -1,6 +1,7 @@
 #include "runner.hpp"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
 
 #include <unistd.h>
 using namespace std;
