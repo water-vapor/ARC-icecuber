@@ -25,7 +25,25 @@ start_time = time.time()
 MEMORY_LIMIT = 4*4096 * 0.95 # MB
 TIME_LIMIT   = 9*60*60 * 0.95 # Seconds
 
+def count_tasks(directory):
+    possible_roots = ["/kaggle/input/abstraction-and-reasoning-challenge/", "./dataset/"]
 
+    root_index = -1
+    for i, root in enumerate(possible_roots):
+        if os.path.isdir(root):
+            root_index = i
+    
+    assert(root_index >= 0)
+    assert(root_index < len(possible_roots))
+    root = possible_roots[root_index]
+    full_directory = root + directory
+    print(full_directory)
+    
+    problems = [f for f in os.listdir(full_directory) if os.path.isfile(os.path.join(full_directory, f)) and f.split(".")[-1] == "json"]
+    print(problems)
+    return len(problems)
+    
+    
 class Process:
     def __init__(self, cmd, timeout, maxmemory):
         fn = cmd.replace(' ','_')
@@ -203,23 +221,4 @@ outf = open('submission_part.csv', 'w')
 for line in combined:
     print(line, file=outf)
 outf.close()
-
-def count_tasks(directory):
-    possible_roots = ["/kaggle/input/abstraction-and-reasoning-challenge/", "./dataset/"]
-
-    root_index = -1
-    for i, root in enumerate(possible_roots):
-        if os.path.isdir(root):
-            root_index = i
-    
-    assert(root_index >= 0)
-    assert(root_index < len(possible_roots))
-    root = possible_roots[root_index]
-    full_directory = root + directory
-    print(full_directory)
-    
-    problems = [f for f in os.listdir(full_directory) if os.path.isfile(os.path.join(full_directory, f)) and f.split(".")[-1] == "json"]
-    print(problems)
-    return len(problems)
-    
     
