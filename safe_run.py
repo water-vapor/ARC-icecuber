@@ -133,9 +133,10 @@ system("mkdir -p output")
 system("mkdir -p store/tmp")
 system("rm -f output/answer*.csv")
 
-if len(sys.argv) == 3:
-    l = int(sys.argv[1])
-    n = int(sys.argv[2])
+directory = sys.argv[1]
+if len(sys.argv) == 4:
+    l = int(sys.argv[2])
+    n = int(sys.argv[3])
     ntasks = n
     task_list = range(l, l+n)
 else:
@@ -152,19 +153,19 @@ stats3 = runAll(depth3, 4)
 flip3 = []
 for i in range(ntasks):
     status, t, m = stats3[depth3[i].cmd]
-    flip3.append(Command("./run %d 23"%i, t*2, m*2, 100))
+    flip3.append(Command("./run %s %d 23" % (directory, i), t*2, m*2, 100))
 stats3_flip = runAll(flip3, 4)
 
 flip3 = []
 for i in range(ntasks):
     status, t, m = stats3[depth3[i].cmd]
-    flip3.append(Command("./run %d 33"%i, t*2, m*2, 100))
+    flip3.append(Command("./run %s %d 33" % (directory, i), t*2, m*2, 100))
 runAll(flip3, 4)
 
 depth4 = []
 for i in range(ntasks):
     status, t, m = stats3[depth3[i].cmd]
-    depth4.append(Command("./run %d 4"%i, t*20, m*20, 2))
+    depth4.append(Command("./run %s %d 4" % (directory, i), t*20, m*20, 2))
 stats4 = runAll(depth4, 2)
 
 def read(fn):

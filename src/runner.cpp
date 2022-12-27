@@ -56,7 +56,7 @@ int MAXSIDE = 100, MAXAREA = 40*40, MAXPIXELS = 40*40*5; //Just default values
 
 int print_times = 1, print_mem = 1, print_nodes = 1;
 
-void run(int only_sid = -1, int arg = -1) {
+void run(int only_sid = -1, int arg = -1, string sample_dir = "evaluation") {
   //rankFeatures();
   //evalNormalizeRigid();
   //evalTasks();
@@ -76,10 +76,8 @@ void run(int only_sid = -1, int arg = -1) {
 
   int skips = 0;
 
-  string sample_dir = "evaluation";
   int samples = -1;
   if (eval) {
-    sample_dir = "test";
     samples = -1;
   }
 
