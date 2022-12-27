@@ -76,7 +76,7 @@ void run(int only_sid = -1, int arg = -1) {
 
   int skips = 0;
 
-  string sample_dir = "tiny_sample";
+  string sample_dir = "evaluation";
   int samples = -1;
   if (eval) {
     sample_dir = "test";
