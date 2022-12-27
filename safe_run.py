@@ -147,7 +147,7 @@ else:
 #TODO: change back to depth 3/4
 depth3 = []
 for i in range(ntasks):
-    depth3.append(Command("./run %d 3"%i))
+    depth3.append(Command("./run %s %d 3" % (directory, i)))
 stats3 = runAll(depth3, 4)
 
 flip3 = []
