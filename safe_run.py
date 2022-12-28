@@ -59,14 +59,14 @@ def count_tasks(directory):
 class Process:
     def __init__(self, cmd, timeout, maxmemory):
         fn = cmd.replace(' ','_')
-        self.fout = open('store/tmp/%s.out'%fn,'w')
-        self.ferr = open('store/tmp/%s.err'%fn,'w')
+        self.fout = open('store/tmp/%s.out'%fn,'w',buffering=1)
+        self.ferr = open('store/tmp/%s.err'%fn,'w',buffering=1)
         print(cmd)
         sys.stdout.flush()
         self.cmd = cmd
         print(cmd)
         print(cmd.split())
-        self.process = Popen(cmd.split(), stdout=PIPE, stderr=PIPE, shell=True) # Popen(cmd.split(), stdout=PIPE, shell=True) #
+        self.process = Popen(cmd.split(), stdout=self.fout, stderr=self.ferr, shell=True) # Popen(cmd.split(), stdout=PIPE, shell=True) #
         # return_code = self.process.wait() # delete this in the end
         self.pid = self.process.pid
         self.mp = psutil.Process(self.pid)
