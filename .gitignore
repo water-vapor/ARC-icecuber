@@ -3,6 +3,5 @@ run
 obj
 headers/precompiled_stl.hpp.gch
 store
-submission_part.csv
 output
 count_tasks
