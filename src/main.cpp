@@ -12,6 +12,10 @@ using namespace std;
 int main(int argc, char**argv) {
   printf("in main\n");
   cerr << "in main" << endl;
+  cerr << "argc" << argc << endl;
+  cerr << "argv 1" << argv[1] << endl;
+  cerr << "argv 2" << argv[2] << endl;
+  cerr << "argv 3" << argv[3] << endl;
   //rankFeatures();
   //evalNormalizeRigid();
   //evalTasks();
