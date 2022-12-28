@@ -11,6 +11,7 @@ using namespace std;
 
 int main(int argc, char**argv) {
   printf("in main\n");
+  cerr << "in main" << endl;
   //rankFeatures();
   //evalNormalizeRigid();
   //evalTasks();
@@ -19,10 +20,10 @@ int main(int argc, char**argv) {
   int only_sid = -1;
   printf("arguments to main %s\n", argv[1]); // VICHANGE
   // assert(argv[1] == NULL); // do I even get here?
-  assert(strcmp(argv[1],'small_dataset_0') == 0);
-  assert(strcmp(argv[2],'0') == 0);
-  assert(strcmp(argv[3],'3') == 0);
-  assert(strcmp(argv[0],'./run') == 0);
+  // assert(strcmp(argv[1],'small_dataset_0') == 0);
+  // assert(strcmp(argv[2],'0') == 0);
+  // assert(strcmp(argv[3],'3') == 0);
+  // assert(strcmp(argv[0],'./run') == 0);
 
   string directory(argv[1]); // VICHANGE add directory argument
   cout << "The directory is " << directory << endl;
