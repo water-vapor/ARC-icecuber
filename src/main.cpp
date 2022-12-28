@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <cstring>
 
 #include <unistd.h>
 using namespace std;
@@ -22,7 +23,7 @@ int main(int argc, char**argv) {
   assert(strcmp(argv[2],'0') == 0);
   assert(strcmp(argv[3],'3') == 0);
   assert(strcmp(argv[0],'./run') == 0);
-  
+
   string directory(argv[1]); // VICHANGE add directory argument
   cout << "The directory is " << directory << endl;
   assert(0 == 1); // do I even get here?
