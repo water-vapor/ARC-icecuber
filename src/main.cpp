@@ -31,7 +31,6 @@ int main(int argc, char**argv) {
 
   string directory(argv[1]); // VICHANGE add directory argument
   cout << "The directory is " << directory << endl;
-  assert(0 == 1); // do I even get here?
 
   if (argc >= 3) { // VICHANGE: push arguments up by one
     only_sid = atoi(argv[2]); // VICHANGE
