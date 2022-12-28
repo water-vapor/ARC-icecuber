@@ -17,8 +17,8 @@ int main(int argc, char**argv) {
   //bruteSolve();
   int only_sid = -1;
   printf("arguments to main %s\n", argv[1]); // VICHANGE
-  assert(argc == 4);
   assert(argv[1] == NULL); // do I even get here?
+  assert(argc == 3);
   assert(*argv[2] == '0');
   assert(*argv[3] == '1');
   assert(*argv[0] == './run');
