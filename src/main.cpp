@@ -18,10 +18,11 @@ int main(int argc, char**argv) {
   int only_sid = -1;
   printf("arguments to main %s\n", argv[1]); // VICHANGE
   // assert(argv[1] == NULL); // do I even get here?
-  assert(argc == 3);
-  assert(*argv[2] == '0');
-  assert(*argv[3] == '1');
-  assert(*argv[0] == './run');
+  assert(strcmp(argv[1],'small_dataset_0') == 0);
+  assert(strcmp(argv[2],'0') == 0);
+  assert(strcmp(argv[3],'3') == 0);
+  assert(strcmp(argv[0],'./run') == 0);
+  
   string directory(argv[1]); // VICHANGE add directory argument
   cout << "The directory is " << directory << endl;
   assert(0 == 1); // do I even get here?
