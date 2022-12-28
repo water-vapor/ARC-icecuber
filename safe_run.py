@@ -64,8 +64,10 @@ class Process:
         print(cmd)
         sys.stdout.flush()
         self.cmd = cmd
+        print(cmd)
+        print(cmd.split())
         self.process = Popen(cmd.split(), stdout=self.fout, stderr=self.ferr, shell=True) # Popen(cmd.split(), stdout=PIPE, shell=True) #
-        return_code = self.process.wait() # delete this in the end
+        # return_code = self.process.wait() # delete this in the end
         self.pid = self.process.pid
         self.mp = psutil.Process(self.pid)
         self.memused, self.timeused = 0, 0

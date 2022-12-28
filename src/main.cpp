@@ -8,6 +8,8 @@
 using namespace std;
 
 int main(int argc, char**argv) {
+  printf("in main\n");
+  assert(0 == 1) // do I even get here?
   //rankFeatures();
   //evalNormalizeRigid();
   //evalTasks();
