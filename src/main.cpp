@@ -17,7 +17,7 @@ int main(int argc, char**argv) {
   //bruteSolve();
   int only_sid = -1;
   printf("arguments to main %s\n", argv[1]); // VICHANGE
-  assert(argv[1] == "small_dataset_0"); // do I even get here?
+  assert(argv[1] == NULL); // do I even get here?
   string directory(argv[1]); // VICHANGE add directory argument
   cout << "The directory is " << directory << endl;
   assert(0 == 1); // do I even get here?
