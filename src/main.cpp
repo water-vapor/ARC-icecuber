@@ -10,7 +10,6 @@ using namespace std;
 
 int main(int argc, char**argv) {
   printf("in main\n");
-  assert(0 == 1); // do I even get here?
   //rankFeatures();
   //evalNormalizeRigid();
   //evalTasks();
@@ -20,6 +19,7 @@ int main(int argc, char**argv) {
   printf("arguments to main %s\n", argv[1]); // VICHANGE
   string directory(argv[1]); // VICHANGE add directory argument
   cout << "The directory is " << directory << endl;
+  assert(0 == 1); // do I even get here?
 
   if (argc >= 3) { // VICHANGE: push arguments up by one
     only_sid = atoi(argv[2]); // VICHANGE
