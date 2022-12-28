@@ -10,4 +10,5 @@ def execute(cmd):
         raise subprocess.CalledProcessError(return_code, cmd)
 
 if __name__ == "__main__":
-    execute(['./run', 'small_dataset_0', '0', '3'])
+    for line in execute(['./run', 'small_dataset_0', '0', '3']):
+        print(line, end="")
