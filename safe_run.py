@@ -14,8 +14,8 @@ import json
 from os import system
 from glob import glob
 
-call(['make','-j'])
-call(['make','-j','count_tasks'])
+call(['make','-j64'])
+call(['make','-j64','count_tasks'])
 
 SUCCESS, TLE, MLE, RTE, RUNNING = 0,1,2,3,-1
 exit_names = ["SUCCESS", "TLE", "MLE", "RTE", "RUNNING"]
@@ -23,8 +23,8 @@ exit_names = ["SUCCESS", "TLE", "MLE", "RTE", "RUNNING"]
 start_time = time.time()
 
 
-MEMORY_LIMIT = 4*4096 * 0.95 # MB
-TIME_LIMIT   = 9*60*60 * 0.95 # Seconds
+MEMORY_LIMIT = 384*1024 * 0.95 # MB
+TIME_LIMIT   = 12*60*60 * 0.95 # Seconds
 
 def count_tasks(directory):
     possible_roots = ["/kaggle/input/abstraction-and-reasoning-challenge/", "./dataset/"]
@@ -119,7 +119,8 @@ def runAll(cmd_list, threads):
 
     def callback(process, status, timeused, memused):
         print(exit_names[status], process.cmd, " %.1fs"%timeused, "%.0fMB"%memused)
-        assert(status != RTE)
+        if status == RTE:
+            print("Runtime error detected; continuing without aborting this batch.")
         sys.stdout.flush()
 
         ret_stats[process.cmd] = (status, timeused, memused)
@@ -182,25 +183,25 @@ else:
 depth3 = []
 for i in range(ntasks):
     depth3.append(Command("./run %s %d 3" % (directory, i)))
-stats3 = runAll(depth3, 4)
+stats3 = runAll(depth3, 64)
 
 flip3 = []
 for i in range(ntasks):
     status, t, m = stats3[depth3[i].cmd]
     flip3.append(Command("./run %s %d 23" % (directory, i), t*2, m*2, 100))
-stats3_flip = runAll(flip3, 4)
+stats3_flip = runAll(flip3, 64)
 
 flip3 = []
 for i in range(ntasks):
     status, t, m = stats3[depth3[i].cmd]
     flip3.append(Command("./run %s %d 33" % (directory, i), t*2, m*2, 100))
-runAll(flip3, 4)
+runAll(flip3, 64)
 
 depth4 = []
 for i in range(ntasks):
     status, t, m = stats3[depth3[i].cmd]
     depth4.append(Command("./run %s %d 4" % (directory, i), t*20, m*20, 2))
-stats4 = runAll(depth4, 2)
+stats4 = runAll(depth4, 32)
 
 def read(fn):
     f = open(fn)
