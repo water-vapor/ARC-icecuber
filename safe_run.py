@@ -200,7 +200,7 @@ runAll(flip3, 64)
 depth4 = []
 for i in range(ntasks):
     status, t, m = stats3[depth3[i].cmd]
-    depth4.append(Command("./run %s %d 4" % (directory, i), t*20, m*20, 2))
+    depth4.append(Command("./run %s %d 4" % (directory, i), t*40, m*40, 2))
 stats4 = runAll(depth4, 32)
 
 def read(fn):
